@@ -1,0 +1,24 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  GREETING: Hello, World!
+
+tasks:
+  default:
+    cmds:
+      - echo "{{.GREETING}}"
+    silent: true
+
+  build:
+    dir: build/
+    cmds:
+      - cmd: cmake ..
+      - cmd: cmake --build .
+      - cmd: ./main.exe
+
+  run:
+    dir: build/
+    cmds:
+      - cmd: ./main.exe
